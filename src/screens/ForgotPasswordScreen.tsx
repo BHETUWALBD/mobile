@@ -1,5 +1,5 @@
 import React, {memo, useState} from 'react';
-import {Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {emailValidator} from '../core/utils';
 import Background from '../components/Background';
 import BackButton from '../components/BackButton';
@@ -52,12 +52,6 @@ const ForgotPasswordScreen = ({navigation}: Props) => {
       <Button mode="contained" onPress={_onSendPressed} style={styles.button}>
         Send Reset Instructions
       </Button>
-
-      <TouchableOpacity
-        style={styles.back}
-        onPress={() => navigation.navigate('LoginScreen')}>
-        <Text style={styles.label}>← Back to login</Text>
-      </TouchableOpacity>
     </Background>
   );
 };
