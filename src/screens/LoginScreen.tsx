@@ -31,7 +31,7 @@ const LoginScreen = ({navigation}: Props) => {
   };
 
   return (
-    <Background>
+    <Background behavior="padding">
       <Logo />
 
       <Header>Welcome back.</Header>

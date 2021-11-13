@@ -11,7 +11,7 @@ type Props = {
 };
 
 const Dashboard = ({navigation}: Props) => (
-  <Background>
+  <Background behavior="padding">
     <Logo />
     <Header>Let’s start</Header>
     <Paragraph>

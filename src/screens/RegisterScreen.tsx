@@ -35,7 +35,7 @@ const RegisterScreen = ({navigation}: Props) => {
   };
 
   return (
-    <Background>
+    <Background behavior="padding">
       <BackButton goBack={() => navigation.navigate('HomeScreen')} />
 
       <Logo />
