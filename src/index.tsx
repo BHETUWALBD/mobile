@@ -1,24 +1,28 @@
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {LoginScreen} from './screens';
 
-import {
-  LoginScreen,
-  RegisterScreen,
-  ForgotPasswordScreen,
-  Dashboard,
-} from './screens';
+function Auth() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={LoginScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
-const Router = createStackNavigator(
-  {
-    LoginScreen,
-    RegisterScreen,
-    ForgotPasswordScreen,
-    Dashboard,
-  },
-  {
-    initialRouteName: 'LoginScreen',
-    headerMode: 'none',
-  },
-);
+const Stack = createNativeStackNavigator();
 
-export default createAppContainer(Router);
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="AUth" component={Auth} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
