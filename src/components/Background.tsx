@@ -3,7 +3,7 @@ import {StyleSheet, KeyboardAvoidingView, View} from 'react-native';
 
 type Props = {
   children: React.ReactNode;
-  behavior: 'height' | 'padding' | 'postion';
+  behavior?: 'height' | 'position' | 'padding';
 };
 
 const Background = ({children, behavior}: Props) => (

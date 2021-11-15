@@ -4,22 +4,30 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {LoginScreen} from './screens';
 
 function Auth() {
+  const Stack = createNativeStackNavigator();
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Login"
+        component={LoginScreen}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
   );
 }
 
-const Stack = createNativeStackNavigator();
-
 function App() {
+  const Stack = createNativeStackNavigator();
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="AUth" component={Auth} />
+        <Stack.Screen
+          name="Auth"
+          component={Auth}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
