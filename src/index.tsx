@@ -42,23 +42,25 @@ function App() {
 
   return (
     <NavigationContainer>
-      {isLoggedIn ? (
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Auth"
-            component={Auth}
-            options={{headerShown: false}}
-          />
-        </Stack.Navigator>
-      ) : (
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Main"
-            component={Main}
-            options={{headerShown: false}}
-          />
-        </Stack.Navigator>
-      )}
+      <Stack.Navigator>
+        {!isLoggedIn ? (
+          <Stack.Group>
+            <Stack.Screen
+              name="App"
+              component={Auth}
+              options={{headerShown: false}}
+            />
+          </Stack.Group>
+        ) : (
+          <Stack.Group>
+            <Stack.Screen
+              name="Main"
+              component={Main}
+              options={{headerShown: false}}
+            />
+          </Stack.Group>
+        )}
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
