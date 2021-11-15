@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {ForgotPasswordScreen, LoginScreen} from './screens';
+import {Dashboard, ForgotPasswordScreen, LoginScreen} from './screens';
 
 function Auth() {
   const Stack = createNativeStackNavigator();
@@ -14,8 +14,22 @@ function Auth() {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="Login"
+        name="ForgotPassword"
         component={ForgotPasswordScreen}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function Main() {
+  const Stack = createNativeStackNavigator();
+
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Dashboard"
+        component={Dashboard}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
@@ -24,16 +38,27 @@ function Auth() {
 
 function App() {
   const Stack = createNativeStackNavigator();
+  const isLoggedIn = true;
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Auth"
-          component={Auth}
-          options={{headerShown: false}}
-        />
-      </Stack.Navigator>
+      {isLoggedIn ? (
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Auth"
+            component={Auth}
+            options={{headerShown: false}}
+          />
+        </Stack.Navigator>
+      ) : (
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Main"
+            component={Main}
+            options={{headerShown: false}}
+          />
+        </Stack.Navigator>
+      )}
     </NavigationContainer>
   );
 }
