@@ -2,6 +2,8 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Dashboard, ForgotPasswordScreen, LoginScreen} from './screens';
+import {useSelector} from 'react-redux';
+import {RootState} from '../store';
 
 function Auth() {
   const Stack = createNativeStackNavigator();
@@ -38,7 +40,7 @@ function Main() {
 
 function App() {
   const Stack = createNativeStackNavigator();
-  const isLoggedIn = true;
+  const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
 
   return (
     <NavigationContainer>

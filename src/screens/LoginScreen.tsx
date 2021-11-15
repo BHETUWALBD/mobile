@@ -8,12 +8,15 @@ import TextInput from '../components/TextInput';
 import {theme} from '../core/theme';
 import {emailValidator, passwordValidator} from '../core/utils';
 import {Navigation} from '../types';
+import {useDispatch} from 'react-redux';
+import {login} from '../reducers/user';
 
 type Props = {
   navigation: Navigation;
 };
 
 const LoginScreen = ({navigation}: Props) => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState({value: '', error: ''});
   const [password, setPassword] = useState({value: '', error: ''});
 
@@ -27,7 +30,7 @@ const LoginScreen = ({navigation}: Props) => {
       return;
     }
 
-    navigation.navigate('Main');
+    dispatch(login());
   };
 
   return (

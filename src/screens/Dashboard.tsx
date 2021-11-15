@@ -1,27 +1,28 @@
 import React, {memo} from 'react';
 import Background from '../components/Background';
-import Logo from '../components/Logo';
 import Header from '../components/Header';
 import Paragraph from '../components/Paragraph';
 import Button from '../components/Button';
 import {Navigation} from '../types';
+import {useDispatch} from 'react-redux';
+import {logout} from '../reducers/user';
 
 type Props = {
   navigation: Navigation;
 };
 
-const Dashboard = ({navigation}: Props) => (
-  <Background behavior="padding">
-    <Logo />
-    <Header>Let’s start</Header>
-    <Paragraph>
-      Your amazing app starts here. Open you favourite code editor and start
-      editing this project.
-    </Paragraph>
-    <Button mode="outlined" onPress={() => navigation.navigate('HomeScreen')}>
-      Logout
-    </Button>
-  </Background>
-);
+const Dashboard = () => {
+  const dispatch = useDispatch();
+
+  return (
+    <Background behavior="padding">
+      <Header>Let’s start</Header>
+      <Paragraph>This is the main page of app.</Paragraph>
+      <Button mode="outlined" onPress={() => dispatch(logout())}>
+        Logout
+      </Button>
+    </Background>
+  );
+};
 
 export default memo(Dashboard);
