@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SiteList, ForgotPasswordScreen, LoginScreen} from './screens';
 import {useSelector} from 'react-redux';
 import {RootState} from '../store';
+import SiteDetail from './screens/SiteDetail';
 
 function Auth() {
   const Stack = createNativeStackNavigator();
@@ -32,6 +33,11 @@ function Main() {
       <Stack.Screen
         name="Sites"
         component={SiteList}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="SiteDetail"
+        component={SiteDetail}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

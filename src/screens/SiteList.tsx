@@ -8,15 +8,7 @@ type Props = {
   navigation: Navigation;
 };
 
-const renderItem = ({item}: any) => {
-  return (
-    <TouchableOpacity style={styles.item}>
-      <Header>{item.name}</Header>
-    </TouchableOpacity>
-  );
-};
-
-const SiteList = () => {
+const SiteList = ({navigation}: Props) => {
   const sites = [
     {id: '1', name: 'Site1'},
     {id: '2', name: 'Site2'},
@@ -27,7 +19,15 @@ const SiteList = () => {
       <FlatList
         style={styles.list}
         data={sites}
-        renderItem={renderItem}
+        renderItem={item => {
+          return (
+            <TouchableOpacity
+              style={styles.item}
+              onPress={() => navigation.navigate('SiteDetail')}>
+              <Header>{item.item.name}</Header>
+            </TouchableOpacity>
+          );
+        }}
         keyExtractor={item => item.id}
       />
     </Background>
