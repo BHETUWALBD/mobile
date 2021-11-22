@@ -31,7 +31,7 @@ function Main() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Sites"
+        name="SiteList"
         component={SiteList}
         options={{headerShown: false}}
       />
