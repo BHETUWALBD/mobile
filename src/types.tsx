@@ -1,3 +1,3 @@
 export type Navigation = {
-  navigate: (scene: string) => void;
+  navigate: (scene: string, params?: {[key: string]: any}) => void;
 };

@@ -1,3 +1,4 @@
+import {Route} from '@react-navigation/routers';
 import React, {memo} from 'react';
 import BackButton from '../components/BackButton';
 import Background from '../components/Background';
@@ -6,13 +7,15 @@ import {Navigation} from '../types';
 
 type Props = {
   navigation: Navigation;
+  route: Route<string, {[key: string]: any}>;
 };
 
-const SiteDetail = ({navigation}: Props) => {
+const SiteDetail = ({route, navigation}: Props) => {
+  const {name} = route.params;
   return (
     <Background behavior="padding">
       <BackButton goBack={() => navigation.navigate('SiteDetail')} />
-      <Header>Locations Details</Header>
+      <Header>{name}</Header>
     </Background>
   );
 };

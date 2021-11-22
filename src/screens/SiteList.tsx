@@ -23,7 +23,7 @@ const SiteList = ({navigation}: Props) => {
           return (
             <TouchableOpacity
               style={styles.item}
-              onPress={() => navigation.navigate('SiteDetail')}>
+              onPress={() => navigation.navigate('SiteDetail', item.item)}>
               <Header>{item.item.name}</Header>
             </TouchableOpacity>
           );
