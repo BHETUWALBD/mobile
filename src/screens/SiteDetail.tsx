@@ -1,22 +1,19 @@
 import React, {memo} from 'react';
-import {Appbar, Text} from 'react-native-paper';
+import BackButton from '../components/BackButton';
+import Background from '../components/Background';
+import Header from '../components/Header';
 import {Navigation} from '../types';
 
 type Props = {
   navigation: Navigation;
 };
 
-const SiteDetail = () => {
+const SiteDetail = ({navigation}: Props) => {
   return (
-    <Appbar.Header>
-      <Appbar.BackAction
-        onPress={() => {
-          console.log('Site Detail');
-        }}></Appbar.BackAction>
-      <Appbar.Content title="Detail">
-        <Text>Hello</Text>
-      </Appbar.Content>
-    </Appbar.Header>
+    <Background behavior="padding">
+      <BackButton goBack={() => navigation.navigate('SiteDetail')} />
+      <Header>Locations Details</Header>
+    </Background>
   );
 };
 
