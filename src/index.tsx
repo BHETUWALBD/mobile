@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Dashboard, ForgotPasswordScreen, LoginScreen} from './screens';
+import {SiteList, ForgotPasswordScreen, LoginScreen} from './screens';
 import {useSelector} from 'react-redux';
 import {RootState} from '../store';
 
@@ -30,8 +30,8 @@ function Main() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Dashboard"
-        component={Dashboard}
+        name="Sites"
+        component={SiteList}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
